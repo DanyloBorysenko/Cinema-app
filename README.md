@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://github.com/DanyloBorysenko/Cinema-app/blob/main/logo.jpg" />
+</p>
+
 <h1 align="center">Cinema-app</h1>
 
 ## :page_facing_up: Project description :page_facing_up:
