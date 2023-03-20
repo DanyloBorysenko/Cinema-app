@@ -1,7 +1,7 @@
 package cinema.service.impl;
 
 import cinema.dao.RoleDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.Role;
 import cinema.service.RoleService;
 import org.springframework.stereotype.Service;
@@ -19,13 +19,13 @@ public class RoleServiceImpl implements RoleService {
         if (role != null) {
             return roleDao.add(role);
         }
-        throw new InputDataException();
+        throw new InputDataFormatException();
     }
 
     @Override
     public Role getByName(String roleName) {
         if (roleName == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         return roleDao.getByName(roleName).orElseThrow(
                 () -> new RuntimeException("Role with role name " + roleName + " not found"));

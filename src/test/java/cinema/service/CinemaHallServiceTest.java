@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import cinema.dao.CinemaHallDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.CinemaHall;
 import cinema.service.impl.CinemaHallServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +41,7 @@ class CinemaHallServiceTest {
 
     @Test
     void add_CinemaHallIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             cinemaHallService.add(null);
         });
     }
@@ -56,7 +56,7 @@ class CinemaHallServiceTest {
 
     @Test
     void get_IdIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             cinemaHallService.get(null);
         });
     }

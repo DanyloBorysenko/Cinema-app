@@ -24,6 +24,8 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
                     "SELECT DISTINCT o FROM Order o "
                             + "join fetch o.tickets t "
                             + "join fetch t.movieSession ms "
+                            + "join fetch t.user u "
+                            + "join fetch u.roles "
                             + "join fetch ms.cinemaHall "
                             + "join fetch ms.movie "
                             + "WHERE o.user = :user", Order.class);

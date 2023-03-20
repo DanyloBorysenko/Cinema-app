@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.Optional;
 import java.util.Set;
 
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.Role;
 import cinema.model.User;
 import cinema.service.UserService;
@@ -60,7 +60,7 @@ class CustomUserDetailsServiceTest {
 
     @Test
     void loadUserByUsername_EmailIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             customUserDetailsService.loadUserByUsername(null);
         });
     }

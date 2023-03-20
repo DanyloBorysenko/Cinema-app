@@ -10,6 +10,8 @@ import cinema.util.DateTimePatternUtil;
 import java.time.LocalDate;
 import java.util.List;
 import javax.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/movie-sessions")
 public class MovieSessionController {
+    private static final Logger logger = LogManager.getLogger(MovieSessionController.class);
     private final MovieSessionService movieSessionService;
     private final RequestDtoMapper<MovieSessionRequestDto, MovieSession>
             movieSessionRequestDtoMapper;
@@ -41,6 +44,9 @@ public class MovieSessionController {
 
     @PostMapping
     public MovieSessionResponseDto add(@RequestBody @Valid MovieSessionRequestDto requestDto) {
+        logger.info("Method add was called. "
+                        + "Params : movieId = {}, cinemaHallId = {}, showTime = {}.",
+                requestDto.getMovieId(), requestDto.getCinemaHallId(), requestDto.getShowTime());
         MovieSession movieSession = movieSessionRequestDtoMapper.mapToModel(requestDto);
         movieSessionService.add(movieSession);
         return movieSessionResponseDtoMapper.mapToDto(movieSession);
@@ -51,6 +57,8 @@ public class MovieSessionController {
                                                 @RequestParam
             @DateTimeFormat(pattern = DateTimePatternUtil.DATE_PATTERN)
                                                         LocalDate date) {
+        logger.info("Method findAvailableSessions was called. "
+                + "Params: movieId = {}, date = {}.", movieId, date);
         return movieSessionService.findAvailableSessions(movieId, date)
                 .stream()
                 .map(movieSessionResponseDtoMapper::mapToDto)
@@ -60,6 +68,9 @@ public class MovieSessionController {
     @PutMapping("/{id}")
     public MovieSessionResponseDto update(@PathVariable Long id,
                                           @RequestBody @Valid MovieSessionRequestDto requestDto) {
+        logger.info("Method update was called. "
+                        + "Params : movieId = {}, showTime = {}, cinemaHallId = {},",
+                requestDto.getMovieId(), requestDto.getShowTime(), requestDto.getCinemaHallId());
         MovieSession movieSession = movieSessionRequestDtoMapper.mapToModel(requestDto);
         movieSession.setId(id);
         movieSessionService.update(movieSession);
@@ -68,6 +79,7 @@ public class MovieSessionController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
+        logger.info("Method delete was called. Params : id = {}", id);
         movieSessionService.delete(id);
     }
 }

@@ -1,6 +1,6 @@
 package cinema.service.impl;
 
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.User;
 import cinema.service.UserService;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if (username == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         Optional<User> optionalUser = userServiceMock.findByEmail(username);
         User user = optionalUser.orElseThrow(

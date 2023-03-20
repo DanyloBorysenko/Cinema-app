@@ -1,7 +1,7 @@
 package cinema.service.impl;
 
 import cinema.dao.OrderDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.Order;
 import cinema.model.ShoppingCart;
 import cinema.model.User;
@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order completeOrder(ShoppingCart shoppingCart) {
         if (shoppingCart == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         Order order = new Order();
         order.setOrderTime(LocalDateTime.now());
@@ -40,6 +40,6 @@ public class OrderServiceImpl implements OrderService {
         if (user != null) {
             return orderDao.getOrdersHistory(user);
         }
-        throw new InputDataException();
+        throw new InputDataFormatException();
     }
 }

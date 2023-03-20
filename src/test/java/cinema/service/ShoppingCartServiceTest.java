@@ -8,7 +8,7 @@ import static org.mockito.ArgumentMatchers.any;
 
 import cinema.dao.ShoppingCartDao;
 import cinema.dao.TicketDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.*;
 import cinema.service.impl.ShoppingCartServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +17,6 @@ import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 class ShoppingCartServiceTest {
@@ -55,14 +54,14 @@ class ShoppingCartServiceTest {
 
     @Test
     void addSession_MovieSessionIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             shoppingCartService.addSession(null, user);
         });
     }
 
     @Test
     void addSession_UserIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             shoppingCartService.addSession(new MovieSession(), null);
         });
     }
@@ -81,7 +80,7 @@ class ShoppingCartServiceTest {
 
     @Test
     void getByUser_UserIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             shoppingCartService.getByUser(null);
         });
     }
@@ -94,7 +93,7 @@ class ShoppingCartServiceTest {
 
     @Test
     void registerNewShoppingCart_UserIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             shoppingCartService.registerNewShoppingCart(null);
         });
     }
@@ -108,7 +107,7 @@ class ShoppingCartServiceTest {
 
     @Test
     void clear_ShoppingCartIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             shoppingCartService.clear(null);
         });
     }

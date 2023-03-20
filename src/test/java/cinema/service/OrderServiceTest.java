@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import cinema.dao.OrderDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.*;
 import cinema.service.impl.OrderServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,7 +55,7 @@ class OrderServiceTest {
 
     @Test
     void completeOrder_ShoppingCartIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             orderService.completeOrder(null);
         });
     }
@@ -75,7 +75,7 @@ class OrderServiceTest {
 
     @Test
     void getOrdersHistory_UserIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             orderService.getOrdersHistory(null);
         });
     }

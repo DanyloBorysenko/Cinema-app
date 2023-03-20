@@ -2,7 +2,7 @@ package cinema.service.impl;
 
 import cinema.dao.ShoppingCartDao;
 import cinema.dao.TicketDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.MovieSession;
 import cinema.model.ShoppingCart;
 import cinema.model.Ticket;
@@ -24,7 +24,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public void addSession(MovieSession movieSession, User user) {
         if (movieSession == null || user == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         Ticket ticket = new Ticket();
         ticket.setMovieSession(movieSession);
@@ -40,13 +40,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         if (user != null) {
             return shoppingCartDao.getByUser(user);
         }
-        throw new InputDataException();
+        throw new InputDataFormatException();
     }
 
     @Override
     public void registerNewShoppingCart(User user) {
         if (user == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setUser(user);
@@ -57,7 +57,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public void clear(ShoppingCart shoppingCart) {
         if (shoppingCart == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         shoppingCart.setTickets(new ArrayList<>());
         shoppingCartDao.update(shoppingCart);

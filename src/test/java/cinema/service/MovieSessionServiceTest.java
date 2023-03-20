@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import cinema.dao.MovieSessionDao;
-import cinema.exception.AuthenticationException;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.CinemaHall;
 import cinema.model.Movie;
 import cinema.model.MovieSession;
@@ -59,14 +58,14 @@ class MovieSessionServiceTest {
 
     @Test
     void findAvailableSessions_MovieIdIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             movieSessionService.findAvailableSessions(null, LOCAL_DATE);
         });
     }
 
     @Test
     void findAvailableSessions_DateIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             movieSessionService.findAvailableSessions(movie.getId(), null);
         });
     }
@@ -81,7 +80,7 @@ class MovieSessionServiceTest {
 
     @Test
     void add_SessionIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             movieSessionService.add(null);
         });
     }
@@ -96,7 +95,7 @@ class MovieSessionServiceTest {
 
     @Test
     void get_IdIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             movieSessionService.get(null);
         });
     }
@@ -111,7 +110,7 @@ class MovieSessionServiceTest {
 
     @Test
     void update_SessionIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             movieSessionService.update(null);
         });
     }
@@ -124,7 +123,7 @@ class MovieSessionServiceTest {
 
     @Test
     void delete_IdIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             movieSessionService.delete(null);
         });
     }

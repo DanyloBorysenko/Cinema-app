@@ -1,7 +1,7 @@
 package cinema.service.impl;
 
 import cinema.dao.MovieSessionDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.MovieSession;
 import cinema.service.MovieSessionService;
 import java.time.LocalDate;
@@ -21,7 +21,7 @@ public class MovieSessionServiceImpl implements MovieSessionService {
         if (movieId != null && date != null) {
             return movieSessionDao.findAvailableSessions(movieId, date);
         }
-        throw new InputDataException();
+        throw new InputDataFormatException();
     }
 
     @Override
@@ -29,13 +29,13 @@ public class MovieSessionServiceImpl implements MovieSessionService {
         if (session != null) {
             return movieSessionDao.add(session);
         }
-        throw new InputDataException();
+        throw new InputDataFormatException();
     }
 
     @Override
     public MovieSession get(Long id) {
         if (id == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         return movieSessionDao.get(id).orElseThrow(
                 () -> new RuntimeException("Session with id " + id + " not found"));
@@ -46,13 +46,13 @@ public class MovieSessionServiceImpl implements MovieSessionService {
         if (movieSession != null) {
             return movieSessionDao.update(movieSession);
         }
-        throw new InputDataException();
+        throw new InputDataFormatException();
     }
 
     @Override
     public void delete(Long id) {
         if (id == null) {
-            throw new InputDataException();
+            throw new InputDataFormatException();
         }
         movieSessionDao.delete(id);
     }

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Optional;
 import cinema.dao.RoleDao;
-import cinema.exception.InputDataException;
+import cinema.exception.InputDataFormatException;
 import cinema.model.Role;
 import cinema.service.impl.RoleServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,7 +37,7 @@ class RoleServiceTest {
 
     @Test
     void add_RoleIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             roleService.add(null);
         });
     }
@@ -52,7 +52,7 @@ class RoleServiceTest {
 
     @Test
     void getByName_RoleNameIsNull_NotOk() {
-        assertThrows(InputDataException.class, () -> {
+        assertThrows(InputDataFormatException.class, () -> {
             roleService.getByName(null);
         });
     }
