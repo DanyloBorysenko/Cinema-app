@@ -49,7 +49,7 @@ public abstract class AbstractDao<T> {
 
     public List<T> getAll() {
         try (Session session = factory.openSession()) {
-            return session.createQuery("from " + clazz.getSimpleName(), clazz).getResultList();
+            return session.createQuery("FROM " + clazz.getSimpleName(), clazz).getResultList();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get all "
                     + clazz.getSimpleName() + "s from db", e);

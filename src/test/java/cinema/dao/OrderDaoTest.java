@@ -4,6 +4,7 @@ import static cinema.model.Role.RoleName.USER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -80,7 +81,7 @@ class OrderDaoTest extends AbstractTest {
         List<Order> actual = orderDao.getOrdersHistory(user);
         assertNotNull(actual);
         assertEquals(1, actual.size());
-        assertEquals(List.of(ticket), actual.get(0).getTickets());
+        assertIterableEquals(List.of(ticket), actual.get(0).getTickets());
         assertEquals(user, actual.get(0).getUser());
     }
 
@@ -94,7 +95,7 @@ class OrderDaoTest extends AbstractTest {
     void getOrdersHistory_InvalidUser_NotOk() {
         user.setEmail("newUser");
         List<Order> actual = orderDao.getOrdersHistory(user);
-        assertEquals(Collections.emptyList(), actual);
+        assertIterableEquals(Collections.emptyList(), actual);
     }
 
     private Role addRoleToDb() {

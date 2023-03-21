@@ -1,6 +1,7 @@
-package cinema.service.mapper;
+package cinema.mapper.impl;
 
 import cinema.dto.response.UserResponseDto;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.User;
 import org.springframework.stereotype.Component;
 

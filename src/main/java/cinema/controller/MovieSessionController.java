@@ -2,10 +2,10 @@ package cinema.controller;
 
 import cinema.dto.request.MovieSessionRequestDto;
 import cinema.dto.response.MovieSessionResponseDto;
+import cinema.mapper.RequestDtoMapper;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.MovieSession;
 import cinema.service.MovieSessionService;
-import cinema.service.mapper.RequestDtoMapper;
-import cinema.service.mapper.ResponseDtoMapper;
 import cinema.util.DateTimePatternUtil;
 import java.time.LocalDate;
 import java.util.List;

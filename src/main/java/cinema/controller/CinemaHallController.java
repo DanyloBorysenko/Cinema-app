@@ -2,10 +2,10 @@ package cinema.controller;
 
 import cinema.dto.request.CinemaHallRequestDto;
 import cinema.dto.response.CinemaHallResponseDto;
+import cinema.mapper.RequestDtoMapper;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.CinemaHall;
 import cinema.service.CinemaHallService;
-import cinema.service.mapper.RequestDtoMapper;
-import cinema.service.mapper.ResponseDtoMapper;
 import java.util.List;
 import javax.validation.Valid;
 import org.apache.logging.log4j.LogManager;

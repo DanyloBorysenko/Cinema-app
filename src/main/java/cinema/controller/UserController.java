@@ -1,9 +1,9 @@
 package cinema.controller;
 
 import cinema.dto.response.UserResponseDto;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.User;
 import cinema.service.UserService;
-import cinema.service.mapper.ResponseDtoMapper;
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
