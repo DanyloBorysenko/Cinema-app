@@ -53,7 +53,7 @@ ____
 After completing all the steps, your browser should show the login page at the address http://localhost:8080/login
 ![](login_Page.png)
 # :point_up_2: Recommendations :point_up_2:
-The application will save two roles and user with role ADMIN to database after start . You can see this data inside the Data Initializer class.
+The application will save two roles and user with role ADMIN to database after start . You can see this data inside the DataInitializer class.
 So you can use an email and a password of this user for authentication or register like a new user with role USER.
 Don't forget that access to pages depends on your role. All permissions you can find inside the SecurityConfig class in method configure.
 Also there you can find information about the methods(GET, POST, UPDATE or DELETE) that should be used for the page.
