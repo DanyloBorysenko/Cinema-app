@@ -1,7 +1,9 @@
-package cinema.service.mapper;
+package cinema.mapper.impl;
 
 import cinema.dto.request.MovieSessionRequestDto;
 import cinema.dto.response.MovieSessionResponseDto;
+import cinema.mapper.RequestDtoMapper;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.MovieSession;
 import cinema.service.CinemaHallService;
 import cinema.service.MovieService;

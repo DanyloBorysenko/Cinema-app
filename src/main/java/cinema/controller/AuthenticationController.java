@@ -2,9 +2,9 @@ package cinema.controller;
 
 import cinema.dto.request.UserRequestDto;
 import cinema.dto.response.UserResponseDto;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.User;
 import cinema.service.AuthenticationService;
-import cinema.service.mapper.ResponseDtoMapper;
 import javax.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,10 +1,10 @@
 package cinema.dao;
 
 import static cinema.model.Role.RoleName.USER;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -81,7 +81,7 @@ class ShoppingCartDaoTest extends AbstractTest {
         assertNotNull(actual);
         assertEquals(expected.getUser(), actual.getUser());
         assertEquals(expected.getId(), actual.getId());
-        assertTrue(actual.getTickets().isEmpty());
+        assertIterableEquals(expected.getTickets(), actual.getTickets());
     }
 
     @Test
@@ -96,7 +96,7 @@ class ShoppingCartDaoTest extends AbstractTest {
         shoppingCart.getTickets().add(ticket);
         ShoppingCart actual = shoppingCartDao.update(shoppingCart);
         assertNotNull(actual);
-        assertEquals(actual.getTickets().get(0), ticket);
+        assertIterableEquals(List.of(ticket), actual.getTickets());
     }
 
     @Test

@@ -1,6 +1,7 @@
-package cinema.service.mapper;
+package cinema.mapper.impl;
 
 import cinema.dto.response.ShoppingCartResponseDto;
+import cinema.mapper.ResponseDtoMapper;
 import cinema.model.ShoppingCart;
 import cinema.model.Ticket;
 import org.springframework.stereotype.Component;
