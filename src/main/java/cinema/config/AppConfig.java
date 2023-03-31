@@ -41,6 +41,11 @@ public class AppConfig {
         properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
         properties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.cache.use_second_level_cache",
+                environment.getProperty("hibernate.cache.use_second_level_cache"));
+        properties.put("hibernate.cache.region.factory_class",
+                environment.getProperty("hibernate.cache.region.factory_class"));
+        properties.put("hibernate.cache.use_query_cache", environment.getProperty("hibernate.cache.use_query_cache"));
 
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("cinema.model");
