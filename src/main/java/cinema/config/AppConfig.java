@@ -45,7 +45,8 @@ public class AppConfig {
                 environment.getProperty("hibernate.cache.use_second_level_cache"));
         properties.put("hibernate.cache.region.factory_class",
                 environment.getProperty("hibernate.cache.region.factory_class"));
-        properties.put("hibernate.cache.use_query_cache", environment.getProperty("hibernate.cache.use_query_cache"));
+        properties.put("hibernate.cache.use_query_cache",
+                environment.getProperty("hibernate.cache.use_query_cache"));
 
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("cinema.model");
