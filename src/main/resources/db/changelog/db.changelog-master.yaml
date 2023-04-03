@@ -15,3 +15,9 @@ databaseChangeLog:
       file: /db/changelog/changes/create-tickets-table.sql
   - include:
       file: /db/changelog/changes/create-shopping_carts-table.sql
+  - include:
+      file: /db/changelog/changes/create-shopping_carts-tickets.sql
+  - include:
+      file: /db/changelog/changes/create-orders-table.sql
+  - include:
+      file: /db/changelog/changes/create-orders_tickets-table.sql
