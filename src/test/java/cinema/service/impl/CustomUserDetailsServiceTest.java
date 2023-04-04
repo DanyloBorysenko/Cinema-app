@@ -38,7 +38,7 @@ class CustomUserDetailsServiceTest {
         user.setRoles(Set.of(new Role(USER)));
         Mockito.when(userServiceMock.findByEmail(email)).thenReturn(Optional.of(user));
         String[] authorities = user.getRoles().stream()
-                .map(role -> role.getRoleName().name())
+                .map(role -> role.getName().name())
                 .toArray(String[]::new);
         UserDetails expected = org.springframework.security.core.userdetails.User
                 .withUsername(email)
