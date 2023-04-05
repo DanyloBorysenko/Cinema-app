@@ -2,53 +2,73 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Login - Cinema Hall</title>
     <style>
         body {
-            background-color: #85cbf6;
+            background-color: #000000;
             font-family: Arial, sans-serif;
+            color: #ffffff;
+            text-align: center;
         }
         h2 {
-            color: #333;
-            text-align: center;
+            color: #ffcc00;
+            font-size: 48px;
             margin-top: 50px;
+            margin-bottom: 0;
         }
         form {
-            width: 400px;
+            width: 600px;
             margin: 0 auto;
-            background-color: #dcdcdc;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
         label {
             display: block;
-            margin-bottom: 10px;
-            color: #000000;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ffffff;
+            text-align: left;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #f3f3f3;
-            border-radius: 3px;
+            padding: 20px;
+            border: 2px solid #ffcc00;
+            border-radius: 5px;
             box-sizing: border-box;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            outline: none;
         }
         input[type="submit"] {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000000;
+            padding: 20px 40px;
             border: none;
-            border-radius: 3px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 24px;
+            transition: background-color 0.3s ease;
         }
         input[type="submit"]:hover {
-            background-color: #3e8e41;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .login-info {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .login-info span {
+            color: #ffcc00;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-<h2>Login</h2>
+<h2>Cinema Hall Login</h2>
 <form th:action="@{/login}" method="post">
     <div>
         <label for="username">Username:</label>
@@ -64,6 +84,9 @@
     </div>
     <div>
         <input type="submit" value="Login">
+    </div>
+    <div class="login-info">
+        <p>Don't have an account? <span>Sign up now</span></p>
     </div>
 </form>
 </body>

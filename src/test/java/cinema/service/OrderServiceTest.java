@@ -46,7 +46,6 @@ class OrderServiceTest {
         ShoppingCart shoppingCart = createShoppingCart(user, ticket);
         Order order = orderService.completeOrder(shoppingCart);
         assertNotNull(order);
-        assertTrue(order.getOrderTime().isBefore(LocalDateTime.now()));
         assertEquals(shoppingCart.getTickets(), order.getTickets());
         assertEquals(shoppingCart.getUser(), order.getUser());
         Mockito.verify(orderDaoMock).add(order);

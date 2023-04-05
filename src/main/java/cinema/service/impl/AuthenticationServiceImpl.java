@@ -2,7 +2,6 @@ package cinema.service.impl;
 
 import cinema.exception.AuthenticationException;
 import cinema.model.Role;
-import cinema.model.Role.RoleName;
 import cinema.model.User;
 import cinema.service.AuthenticationService;
 import cinema.service.RoleService;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
+    private static final Long USER_ROLE_ID = 1L;
     private final UserService userService;
     private final ShoppingCartService shoppingCartService;
     private final RoleService roleService;
@@ -33,7 +33,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        Role userRole = roleService.getByName(RoleName.USER.name());
+        Role userRole = roleService.getById(USER_ROLE_ID);
         user.setRoles(Set.of(userRole));
         User addedUser = userService.add(user);
         shoppingCartService.registerNewShoppingCart(addedUser);

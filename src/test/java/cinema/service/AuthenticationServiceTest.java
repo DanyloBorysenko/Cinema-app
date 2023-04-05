@@ -40,7 +40,7 @@ class AuthenticationServiceTest {
         user.setPassword(password);
         user.setRoles(Set.of(new Role(USER)));
         user.setId(1L);
-        Mockito.when(roleServiceMock.getByName(any())).thenReturn(new Role(USER));
+        Mockito.when(roleServiceMock.getById(1L)).thenReturn(new Role(USER));
         Mockito.when(userServiceMock.add(any())).thenReturn(user);
         User actual = authenticationService.register(email, password);
         assertNotNull(actual);

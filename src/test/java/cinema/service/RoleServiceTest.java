@@ -44,8 +44,8 @@ class RoleServiceTest {
 
     @Test
     void getByName() {
-        Mockito.when(roleDaoMock.getByName(role.getRoleName().name())).thenReturn(Optional.of(role));
-        Role actual = roleService.getByName(role.getRoleName().name());
+        Mockito.when(roleDaoMock.getByName(role.getName().name())).thenReturn(Optional.of(role));
+        Role actual = roleService.getByName(role.getName().name());
         assertNotNull(actual);
         assertEquals(role, actual);
     }
