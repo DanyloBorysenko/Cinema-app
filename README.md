@@ -7,7 +7,8 @@
 ## :page_facing_up: Project description :page_facing_up:
 ```
 This web application is built using the Spring framework and Hibernate ORM. 
-It supports CRUD (Create, Read, Update, Delete) operations and is designed to work with a database. 
+It supports CRUD (Create, Read, Update, Delete) operations and is designed to work with a database.
+Hibernate second level cache and Liquibase were used to improve performance and ensure stability.
 The application has been tested and works locally on a computer.
 ```
 ## :heavy_check_mark: Features :heavy_check_mark:
@@ -30,6 +31,7 @@ The application has been tested and works locally on a computer.
 ## :computer: Technologies used :computer:
 + Spring
 + Hibernate
++ Liquibase
 + Mysql 8.0.31
 + log4j
 + Junit5
@@ -41,7 +43,7 @@ The application has been tested and works locally on a computer.
 3. Clone the repository to your local machine.
 4. In Edit configuration menu -> Add new configuration -> Tomcat server Local -> Configure -> Choose directory with your Tomcat installed -> press fix button in the lower right corner -> choose war exploded -> ok
 5. Use init_db.sql file for creating your local database.
-6. Open db.properties file from src\main\resources and write information about your database.
+6. Open db.properties file from src\main\resources and write information about your database.Do the same in file liquibase.properties.
 ```
 db.driver= "YOUR_DRIVER"
 db.url= jdbc:mysql://YOUR_DATABASE_URL/cinema_app
@@ -53,8 +55,9 @@ ____
 After completing all the steps, your browser should show the login page at the address http://localhost:8080/login
 ![](login_Page.png)
 # :point_up_2: Recommendations :point_up_2:
-The application will save two roles and user with role ADMIN to database after start . You can see this data inside the DataInitializer class.
-So you can use an email and a password of this user for authentication or register like a new user with role USER.
+The application will save two roles ('USER' id = 1 and 'ADMIN' id = 2) and user with role ADMIN to database after start . 
+You can see this data inside the DataInitializer class.
+So you can use an email and a password of this user for authentication or you can register like a new user with role USER.
 Don't forget that access to pages depends on your role. All permissions you can find inside the SecurityConfig class in method configure.
 Also there you can find information about the methods(GET, POST, UPDATE or DELETE) that should be used for the page.
 The application doesn't contains jsp or html pages, so the best way to send a request it's to use Postman application. 
