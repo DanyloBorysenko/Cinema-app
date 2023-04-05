@@ -20,10 +20,12 @@ public class DataInitializer {
 
     @PostConstruct
     public void inject() {
-        User admin = new User();
+/*        User admin = new User();
         admin.setEmail("admin@i.ua");
         admin.setPassword("admin123");
         admin.setRoles(Set.of(roleService.getById(ROLE_ADMIN_ID)));
         userService.add(admin);
+
+ */
     }
 }
