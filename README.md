@@ -53,7 +53,7 @@ db.password= "YOUR_PASSWORD"
 7. Press debug button.
 ____
 After completing all the steps, your browser should show the login page at the address http://localhost:8080/login
-![](login_Page.png)
+![](loginPage.png)
 # :point_up_2: Recommendations :point_up_2:
 The application will save two roles ('USER' id = 1 and 'ADMIN' id = 2) and user with role ADMIN to database after start . 
 You can see this data inside the DataInitializer class.
