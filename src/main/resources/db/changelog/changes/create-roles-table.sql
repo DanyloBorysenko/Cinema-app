@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset danylborysenko:create-roles-table splitStatements:true endDelimiter:;
+--changeset user_name:create-roles-table splitStatements:true endDelimiter:;
 CREATE TABLE `roles` (
                         `id` BIGINT NOT NUll AUTO_INCREMENT ,
                         `name` VARCHAR(255) DEFAULT NULL,
